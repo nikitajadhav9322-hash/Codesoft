@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
+            background-color: lightblue;
+        }
+        input {
+            width: 210px;
+            height: 40px;
+            font-size: 18px;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 50px;
+            height: 40px;
+            font-size: 18px;
+            margin: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Calculator</h2>
+
+<input type="text" id="result" disabled><br>
+
+<button onclick="clearResult()">C</button>
+<button onclick="deleteLast()">DEL</button><br>
+
+<button onclick="appendValue('7')">7</button>
+<button onclick="appendValue('8')">8</button>
+<button onclick="appendValue('9')">9</button>
+<button onclick="appendValue('/')">/</button><br>
+
+<button onclick="appendValue('4')">4</button>
+<button onclick="appendValue('5')">5</button>
+<button onclick="appendValue('6')">6</button>
+<button onclick="appendValue('*')">*</button><br>
+
+<button onclick="appendValue('1')">1</button>
+<button onclick="appendValue('2')">2</button>
+<button onclick="appendValue('3')">3</button>
+<button onclick="appendValue('-')">-</button><br>
+
+<button onclick="appendValue('0')">0</button>
+<button onclick="appendValue('.')">.</button>
+<button onclick="calculate()">=</button>
+<button onclick="appendValue('+')">+</button>
+
+<script>
+    function appendValue(value) {
+        document.getElementById("result").value += value;
+    }
+
+    function clearResult() {
+        document.getElementById("result").value = "";
+    }
+
+    function deleteLast() {
+        let res = document.getElementById("result").value;
+        document.getElementById("result").value = res.slice(0, -1);
+    }
+
+    function calculate() {
+        let res = document.getElementById("result").value;
+        document.getElementById("result").value = eval(res);
+    }
+</script>
+
+</body>
+</html>
